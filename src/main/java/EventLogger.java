@@ -1,4 +1,6 @@
-public interface EventLogger {
+import java.io.IOException;
 
-  public abstract void logEvent(Event event);
+public interface EventLogger {
+  public abstract void logEvent(Event event) throws IOException;
+
 }

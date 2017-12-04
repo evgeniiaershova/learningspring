@@ -16,8 +16,6 @@ public class Client {
         this.id = id;
     }
 
-
-
     public String getFullName() {
         return fullName;
     }

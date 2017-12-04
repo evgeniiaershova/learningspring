@@ -13,6 +13,25 @@
     <bean id="app" class="App">
         <constructor-arg index="0" ref="client" />
         <constructor-arg index="1" ref="eventLogger" />
+        <constructor-arg index="2" ref="fileEventLogger" />
+        <constructor-arg index="3" ref="cacheFileEventLogger" />
+        <constructor-arg index="4" ref="event"/>
+    </bean>
+    <bean id="event" class="Event" scope="prototype">
+        <constructor-arg index="0" value="default message"/>
+        <constructor-arg>
+             <bean id="date" class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean id="df" class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+        </constructor-arg>
+    </bean>
+    <bean id="fileEventLogger" class="FileEventLogger" init-method="init">
+        <constructor-arg value="logs.txt"/>
+    </bean>
+    <bean id="cacheFileEventLogger" class="CacheFileEventLogger" destroy-method="destroy">
+        <constructor-arg index="0" value="logs.txt"/>
+        <constructor-arg index="1" value="1"/>
     </bean>
 
 </beans>

@@ -9,6 +9,10 @@ public class Event {
     Date date;
     DateFormat df;
 
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
     public Event(String msg, Date date, DateFormat df) {
         this.date = date;
         this.msg = msg;
